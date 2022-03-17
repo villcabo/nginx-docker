@@ -7,6 +7,3 @@ docker-compose up -d
 ```
 docker-compose down
 ```
-
-#### Reserved ports
-from 80 to 90
