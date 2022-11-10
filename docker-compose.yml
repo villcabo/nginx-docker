@@ -2,10 +2,17 @@ version: '3.5'
 
 services:
   ng:
-    container_name: nginx
+    container_name: ng120
     image: nginx:1.20.2-alpine
     network_mode: host
     restart: unless-stopped
+    # ports:
+    #   - "0.0.0.0:81:80"
+    #   - "0.0.0.0:8900:8000" # genesis pgw
+    #   - "0.0.0.0:8901:8001" # sfl billing
+    #   - "0.0.0.0:3500:3500" # swagger ui
     volumes:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - /home/ubuntu/CodeProjects/swagger-ui/dist/:/usr/share/nginx/html/swagger-ui:ro
       #- /home/ubuntu/SintesisProjects/genesis-pgw/gpgw-angular-integration/dist:/var/www/genesis-site:ro
+      #- /home/ubuntu/WebstormProjects/APSfrontend/dist/afp-frontend/:/usr/share/nginx/html/aps
